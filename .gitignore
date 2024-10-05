@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/Ambient Ravine (FUS Game Dev)/Library
+/Ambient Ravine (FUS Game Dev)/Logs
+/Ambient Ravine (FUS Game Dev)/Temp
+/Ambient Ravine (FUS Game Dev)/UserSettings
