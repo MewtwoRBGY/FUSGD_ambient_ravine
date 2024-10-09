@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mvmSpd = 5f;
     [SerializeField] float jmpSpd = 8f;
     [SerializeField] float airSpdCoEff = .75f;
+    [SerializeField] float dropSpd = 1f;
+    [SerializeField] float maxFallVelocity = 20f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
     float groundCheckRadius = 0.2f;
@@ -79,9 +81,9 @@ public class PlayerController : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x, jmpSpd);
             
         }
-        else if(!isGrounded() && fall.ReadValue<float>() > 0.0)
+        else if(!isGrounded() && fall.ReadValue<float>() > 0.0 && player.velocity.y > -1.0f * maxFallVelocity)
         {
-            player.velocity = new Vector2(player.velocity.x, player.velocity.y - .5f);
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - dropSpd);
         }
     }
 
