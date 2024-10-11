@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1895071141198412564}
   - component: {fileID: 436594363766661715}
   - component: {fileID: 6746246226577654811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6653225715670306744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Basic Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
