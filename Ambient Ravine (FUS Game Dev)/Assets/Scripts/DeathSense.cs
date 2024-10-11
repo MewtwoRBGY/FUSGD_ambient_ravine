@@ -22,13 +22,13 @@ public class DeathSense : MonoBehaviour
     {
         if(other.gameObject.tag == "Deadly") //Checks if the trigger's tag is "Deadly"
         {
-            move.canMove = false;
-            rb.velocity = new Vector2(0f,0f);
-            rb.gravityScale = 0;
             foreach(var col in gameObject.GetComponentsInChildren<Collider2D>())
             {
                 col.enabled = false;
             }
+            move.canMove = false;
+            rb.velocity = new Vector2(0f,0f);
+            rb.gravityScale = 0;
             sound.Play();
             Debug.Log("Greg"); //Prints to the console
             anim.SetBool("dead", true);
