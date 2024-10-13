@@ -21,8 +21,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxFallVelocity = 20f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+
+    [SerializeField] public Camera cam;
+    [SerializeField] Transform Turret;
+
     float groundCheckRadius = 0.2f;
     public bool canMove = true;
+
+    Vector2 mousePos;
 
     Rigidbody2D player;
 
@@ -57,6 +63,17 @@ public class PlayerController : MonoBehaviour
         //Processes these every single frame
         Walk();
         Jump();
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void FixedUpdate()
+    { 
+        Vector2 lookDir = mousePos - Vector3ToVector2();
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+        Turret.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
     }
 
     void Walk()
@@ -90,5 +107,10 @@ public class PlayerController : MonoBehaviour
     bool isGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    private Vector2 Vector3ToVector2()
+    {
+        return new Vector2(Turret.position.x, Turret.position.y);
     }
 }
