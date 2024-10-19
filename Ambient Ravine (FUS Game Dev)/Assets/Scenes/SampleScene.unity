@@ -258,6 +258,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4351991368340885505, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
   m_PrefabInstance: {fileID: 1370472826}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &284107047 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3784275103232437189, guid: 0cf3a88b8e6d84199abfb63da445d974, type: 3}
+  m_PrefabInstance: {fileID: 3915162174402687494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &320979628
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +484,11 @@ Transform:
   - {fileID: 1573310222}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &559098451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7153262232513289532, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+  m_PrefabInstance: {fileID: 3998493725058098293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &582061877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1462,6 +1472,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+--- !u!1 &1371466082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371466084}
+  - component: {fileID: 1371466083}
+  - component: {fileID: 1371466085}
+  m_Layer: 0
+  m_Name: TypesOfBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1371466083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371466082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe714f5ce260924483b65d3c61554f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6464223707678597872, guid: 7f7516615faf91f4dbd70758cc200698, type: 3}
+  GunName: Gun
+  BulletSpeed: 20
+  BulletAmount: 10
+  CoolDownf: 5
+  Damage: 3
+  Recoil: 3
+--- !u!4 &1371466084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371466082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16662498, y: 1.4031792, z: -0.013643887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371466085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371466082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3aee3b204af9e46b968fee3115cc42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6464223707678597872, guid: 3fec4b28aab05a8478cbd85d3e7c8f19, type: 3}
+  GunName: Shotgun
+  BulletSpeed: 10
+  BulletAmount: 1000
+  CoolDownf: 0.2
+  BulletSpreadAmount: 3
+  Damage: 3
+  Recoil: 3
 --- !u!1001 &1381036867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2243,6 +2325,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1950181522782230011, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: TOB
+      value: 
+      objectReference: {fileID: 1371466082}
+    - target: {fileID: 2379552101366461554, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 284107047}
+    - target: {fileID: 2379552101366461554, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: Turret
+      value: 
+      objectReference: {fileID: 559098451}
     - target: {fileID: 2411271336363657377, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
       propertyPath: text
       value: 
@@ -2291,6 +2385,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8896277682104708838, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100943664268357065, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2309,3 +2411,4 @@ SceneRoots:
   - {fileID: 1479517744}
   - {fileID: 859532637}
   - {fileID: 2082467916}
+  - {fileID: 1371466084}

@@ -13,9 +13,9 @@ public class Fired : MonoBehaviour
         CurrentBulletType = GetComponent<Bullets>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider2D) 
     {
-        CurrentBulletType.OnHit();
+        CurrentBulletType.OnHit(collider2D);
     }
 
     private void Start()

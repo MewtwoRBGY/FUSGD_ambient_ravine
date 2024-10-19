@@ -19,7 +19,7 @@ public abstract class Bullets : MonoBehaviour
     /// <summary>
     /// Called whenever the bullet hits an object with a collider 
     /// </summary>
-    public abstract void OnHit();
+    public abstract void OnHit(Collider2D collider2D);
 
     /// <summary>
     /// Called whenever the object is first fired. To be used for any specific things that need to happen while in the air. (Probably wont be used much but just in case.)

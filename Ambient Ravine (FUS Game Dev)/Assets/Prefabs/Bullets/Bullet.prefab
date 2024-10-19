@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7884625510041808295}
   - component: {fileID: 350043412821030029}
   - component: {fileID: -3540615069396311080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
-  m_TagString: Feet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  WName: Gun
+  GunName: Gun
   BulletSpeed: 20
   BulletAmount: 10
-  CoolDownInt: 5
+  CoolDownf: 5
+  Damage: 3
+  Recoil: 3

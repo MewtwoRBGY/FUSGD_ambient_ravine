@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
 
     //private UIManager uiManager;
 
-    private float lastUsedTime;
+    private float lastUsedTime = 0;
 
     // Obtains all scripts of type Bullet inside of the Empty Object "Types of Bullets"
     void Start()

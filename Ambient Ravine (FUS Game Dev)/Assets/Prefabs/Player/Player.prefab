@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 2379552101366461554}
   - component: {fileID: 5471024426896666342}
   - component: {fileID: 6022934153303710838}
+  - component: {fileID: 1950181522782230011}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -492,6 +493,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1950181522782230011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642822630887560464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dceb9dadd12ae6940a6798c33c004f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TOB: {fileID: 0}
+  Firepoint: {fileID: 4792189540636272440}
+  Pointer: 0
+  InventorySlot: []
 --- !u!1 &8896277682104708838
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +619,7 @@ Transform:
   m_GameObject: {fileID: 9100943664268357065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.501, y: 0, z: 0}
+  m_LocalPosition: {x: 0.626, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

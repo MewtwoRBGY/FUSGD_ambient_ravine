@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-public class RegularBullet : Bullets
+public class ShotGunBullet : Bullets
 {
     [SerializeField]
     GameObject bulletPrefab;
@@ -21,10 +20,14 @@ public class RegularBullet : Bullets
     float CoolDownf = 5;
 
     [SerializeField]
+    int BulletSpreadAmount = 3;
+
+    [SerializeField]
     float Damage = 3;
 
     [SerializeField]
-    float Recoil = 0;
+    float Recoil = 2;
+
 
     private void Awake()
     {
@@ -37,21 +40,27 @@ public class RegularBullet : Bullets
 
     public override void Shoot(Transform Firepoint)
     {
-        GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Firepoint.rotation);
-        bullet.AddComponent<Fired>();
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(Firepoint.up * Speed, ForceMode2D.Impulse);
+        for(int i = -1; i <= 1; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Firepoint.rotation);
+
+            bullet.AddComponent<Fired>();
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+            rb.AddForce((Firepoint.up + i*(Firepoint.right)/6).normalized * Speed, ForceMode2D.Impulse);
+        }
     }
 
     public override void OnHit(Collider2D collider2D)
     {
         IDamageable damageable = collider2D.GetComponent<IDamageable>();
-        if (damageable != null) 
+        if (damageable != null)
         {
             damageable.Damage(Damage);
         }
         Destroy(gameObject);
-    } 
+    }
 
     public override void Fired()
     {

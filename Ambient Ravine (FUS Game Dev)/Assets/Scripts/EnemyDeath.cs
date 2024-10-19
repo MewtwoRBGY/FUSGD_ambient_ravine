@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
-public class EnemyDeath : MonoBehaviour
+public class EnemyDeath : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    float health = 10;
+
     Animator anim;
     Rigidbody2D rb;
     AudioSource sound;
@@ -14,6 +18,8 @@ public class EnemyDeath : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
     }
+
+    //TODO: Put this in playercontroller and allow it to call damage method.
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Feet")
@@ -29,8 +35,21 @@ public class EnemyDeath : MonoBehaviour
         }
     }
 
+    public void Damage(float Damage)
+    {
+        health = health - Damage ;
+        if (health < 0)
+        {
+            Die();
+        } else
+        {
+            Debug.Log("Health Lost! Current Health: " + health);
+        }
+    }
+
     public void Die()
     {
-        Destroy(gameObject);
+        Debug.Log(gameObject.name + " just died.");
+        anim.SetBool("dead", true);
     }
 }
