@@ -18,7 +18,7 @@ public class RegularBullet : Bullets
     int BulletAmount = 10;
 
     [SerializeField]
-    float CoolDownf = 5;
+    float CoolDownf;
 
     [SerializeField]
     float Damage = 3;

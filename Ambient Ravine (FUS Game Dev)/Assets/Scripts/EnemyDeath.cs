@@ -13,7 +13,6 @@ public class EnemyDeath : MonoBehaviour, IDamageable
     AudioSource sound;
     void Awake()
     {
-
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
@@ -22,7 +21,7 @@ public class EnemyDeath : MonoBehaviour, IDamageable
     //TODO: Put this in playercontroller and allow it to call damage method.
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Feet")
+        /*if(other.gameObject.tag == "Feet")
         {
             foreach(var col in gameObject.GetComponentsInChildren<Collider2D>())
             {
@@ -32,13 +31,13 @@ public class EnemyDeath : MonoBehaviour, IDamageable
             rb.velocity = new Vector2(0f,0f);
             rb.gravityScale = 0; 
             anim.SetBool("dead", true);
-        }
+        }*/
     }
 
     public void Damage(float Damage)
     {
         health = health - Damage ;
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         } else
@@ -50,6 +49,6 @@ public class EnemyDeath : MonoBehaviour, IDamageable
     public void Die()
     {
         Debug.Log(gameObject.name + " just died.");
-        anim.SetBool("dead", true);
+        Destroy(gameObject);
     }
 }

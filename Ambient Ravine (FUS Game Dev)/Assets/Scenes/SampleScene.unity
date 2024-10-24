@@ -432,6 +432,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffb0d32972f14b63827219725676160, type: 3}
+--- !u!1 &467383694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8642822630887560464, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+  m_PrefabInstance: {fileID: 3998493725058098293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &467383704
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467383694}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &544773564
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,13 +602,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 320979629}
     m_Modifications:
+    - target: {fileID: 26008651993340948, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7994522
+      objectReference: {fileID: 0}
+    - target: {fileID: 26008651993340948, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4484454
+      objectReference: {fileID: 0}
+    - target: {fileID: 26008651993340948, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.031645596
+      objectReference: {fileID: 0}
+    - target: {fileID: 26008651993340948, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.019133866
+      objectReference: {fileID: 0}
+    - target: {fileID: 110255501961849571, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: KnockTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 460565725986804417, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169541613846616265, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4351991368340885505, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.882204
+      value: 7.44
       objectReference: {fileID: 0}
     - target: {fileID: 4351991368340885505, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2025692
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 4351991368340885505, guid: d08daf46bacf74d7884337529454e6c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1506,7 +1574,7 @@ MonoBehaviour:
   GunName: Gun
   BulletSpeed: 20
   BulletAmount: 10
-  CoolDownf: 5
+  CoolDownf: 1
   Damage: 3
   Recoil: 3
 --- !u!4 &1371466084
@@ -1538,7 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6464223707678597872, guid: 3fec4b28aab05a8478cbd85d3e7c8f19, type: 3}
   GunName: Shotgun
-  BulletSpeed: 10
+  BulletSpeed: 20
   BulletAmount: 1000
   CoolDownf: 0.2
   BulletSpreadAmount: 3
@@ -2325,6 +2393,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 944980427502415722, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 944980427502415722, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 944980427502415722, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 944980427502415722, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1950181522782230011, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
       propertyPath: TOB
       value: 
@@ -2337,6 +2421,14 @@ PrefabInstance:
       propertyPath: Turret
       value: 
       objectReference: {fileID: 559098451}
+    - target: {fileID: 2379552101366461554, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: jmpSpd
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2379552101366461554, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      propertyPath: mvmSpd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2411271336363657377, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
       propertyPath: text
       value: 
@@ -2396,7 +2488,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8642822630887560464, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467383704}
   m_SourcePrefab: {fileID: 100100000, guid: 328e5f59156f54c10891f048edc7e4ad, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

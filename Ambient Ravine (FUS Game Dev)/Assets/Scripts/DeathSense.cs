@@ -22,22 +22,21 @@ public class DeathSense : MonoBehaviour
     {
         if(other.gameObject.tag == "Deadly") //Checks if the trigger's tag is "Deadly"
         {
-            foreach(var col in gameObject.GetComponentsInChildren<Collider2D>())
-            {
-                col.enabled = false;
-            }
-            move.canMove = false;
-            rb.velocity = new Vector2(0f,0f);
-            rb.gravityScale = 0;
-            sound.Play();
-            Debug.Log("Greg"); //Prints to the console
-            anim.SetBool("dead", true);
         }
     }
 
     public void Die()
     {
-        Destroy(gameObject); //Destroys the player
-        text.SetActive(true); //Sets the text to active
+            foreach (var col in gameObject.GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = false;
+            }
+            move.canMove = false;
+            rb.velocity = new Vector2(0f, 0f);
+            rb.gravityScale = 0;
+            sound.Play();
+            Debug.Log("Greg"); //Prints to the console
+            anim.SetBool("dead", true);
+            Destroy(gameObject);
     }
 }

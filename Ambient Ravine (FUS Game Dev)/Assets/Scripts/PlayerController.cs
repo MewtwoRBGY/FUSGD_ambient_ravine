@@ -5,8 +5,12 @@ using UnityEngine.InputSystem;
 //Change InputManager to InputManager(New) in Project Settings -> Player Settings and download InputSystem in PackageManager to make this script work.
 //NOTE: Check Packages in registry not in project
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    [Header("Stats")]
+    [SerializeField] float Health;
+    [SerializeField] bool Immune  = false;
+
     //SerializeField makes it visible and editable in Inspector while keeping the variable as private
     [SerializeField] InputAction move; //Check bindings on the player's PlayerMover script
     [SerializeField] InputAction jump;
@@ -72,7 +76,21 @@ public class PlayerController : MonoBehaviour
         Vector2 lookDir = mousePos - Vector3ToVector2();
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-        Turret.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        Turret.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.LerpAngle(Turret.rotation.eulerAngles.z, angle, .15f)));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+    }
+
+    public void Stomp(Collider2D collider2D)
+    {
+        IDamageable damageable = collider2D.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+          
+            damageable.Damage(5);
+        }
 
     }
 
@@ -112,5 +130,30 @@ public class PlayerController : MonoBehaviour
     private Vector2 Vector3ToVector2()
     {
         return new Vector2(Turret.position.x, Turret.position.y);
+    }
+
+    public void Damage(float Damage)
+    {
+        if (Immune = false)
+        {
+            if (Health <= 0)
+                {
+                    Debug.Log("Dead");
+                } 
+            else
+                {
+                    Health -= Damage;
+                    Debug.Log("YOU LOST HEALTH! Current Health: " + Health);
+                    StartCoroutine(Immunity());
+                }
+        }
+        
+    }
+
+    private IEnumerator Immunity()
+    {
+        Immune = true;
+        yield return new WaitForSeconds(.5f);
+        Immune = false;
     }
 }
