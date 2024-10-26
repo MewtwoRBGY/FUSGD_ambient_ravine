@@ -7,5 +7,5 @@ public interface IDamageable
     /// <summary>
     /// Allows an object to take damage. 
     /// </summary>
-    void Damage(float Damage);
+    void Damage(float Damage, Vector2 Knockback);
 }

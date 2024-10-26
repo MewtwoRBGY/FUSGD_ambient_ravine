@@ -57,7 +57,7 @@ public class ShotGunBullet : Bullets
         IDamageable damageable = collider2D.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.Damage(Damage);
+            damageable.Damage(Damage, Vector2.zero);
         }
         Destroy(gameObject);
     }

@@ -241,7 +241,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007336378, y: -0.060309768}
+  m_Offset: {x: -0.00080770254, y: 0.009487152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -252,7 +252,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6148784, y: 0.90354776}
+  m_Size: {x: 1.5753409, y: 1.5392883}
   m_EdgeRadius: 0
 --- !u!114 &110255501961849571
 MonoBehaviour:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
-  KnockTime: 2
+  KnockTime: 3
 --- !u!1 &9163664345937105507
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,8 +411,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!82 &1328148464729749200
 AudioSource:
   m_ObjectHideFlags: 0

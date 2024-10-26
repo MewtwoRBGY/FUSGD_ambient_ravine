@@ -16,17 +16,15 @@ public class Enemy : MonoBehaviour
         if (collider2D.tag == "Player")
         {
             IDamageable damageable = collider2D.GetComponent<IDamageable>();
-            Debug.Log(collider2D.name);
             if (damageable != null)
             {
                 Rigidbody2D rb2 = collider2D.GetComponent<Rigidbody2D>();
                 Vector2 Knockback = (-(Vector2)transform.position + (Vector2)collider2D.transform.position).normalized;
 
-                rb2.AddForce(Knockback*20, ForceMode2D.Impulse);
                 StartCoroutine(KnockbackTimer(rb2));
 
-                damageable.Damage(Damage);
-                
+                damageable.Damage(Damage, Knockback);
+
             }
         }
     }

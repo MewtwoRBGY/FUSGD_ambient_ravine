@@ -79,21 +79,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         Turret.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.LerpAngle(Turret.rotation.eulerAngles.z, angle, .15f)));
     }
 
-    private void OnTriggerEnter2D(Collider2D collider2D)
-    {
-    }
-
-    public void Stomp(Collider2D collider2D)
-    {
-        IDamageable damageable = collider2D.GetComponent<IDamageable>();
-        if (damageable != null)
-        {
-          
-            damageable.Damage(5);
-        }
-
-    }
-
     void Walk()
     {
         float walk = Time.deltaTime * mvmSpd * move.ReadValue<float>(); //Since Update is called every frame Time.deltaTime makes it so movement speed is not tied to framerate
@@ -132,9 +117,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         return new Vector2(Turret.position.x, Turret.position.y);
     }
 
-    public void Damage(float Damage)
+    public void Damage(float Damage, Vector2 Knockback)
     {
-        if (Immune = false)
+        if (Immune == false)
         {
             if (Health <= 0)
                 {
@@ -144,7 +129,8 @@ public class PlayerController : MonoBehaviour, IDamageable
                 {
                     Health -= Damage;
                     Debug.Log("YOU LOST HEALTH! Current Health: " + Health);
-                    StartCoroutine(Immunity());
+                player.AddForce(Knockback * 20, ForceMode2D.Impulse);
+                StartCoroutine(Immunity());
                 }
         }
         
