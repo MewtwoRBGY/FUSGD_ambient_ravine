@@ -9,8 +9,8 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField]
     public GameObject TOB;
-    //[SerializeField]
-    //public GameObject UImanagerObject;
+    [SerializeField]
+    public GameObject Managers;
     [SerializeField]
     public Transform Firepoint;
     [SerializeField]
@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     public List<Bullets> InventorySlot;
 
-    //private UIManager uiManager;
+    private UIManager uiManager;
 
     private float lastUsedTime = 0;
 
@@ -26,9 +26,9 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         InventorySlot.AddRange(TOB.GetComponents<Bullets>());
-        //uiManager = UImanagerObject.GetComponent<UIManager>();
-        //uiManager.UpdateWeaponName(InventorySlot[Pointer].WeaponName);
-        //uiManager.UpdateAmmoAmmount(InventorySlot[Pointer].AmmoCount);
+        uiManager = Managers.GetComponent<UIManager>();
+        uiManager.UpdateAmmo(InventorySlot[Pointer].AmmoCount);
+        uiManager.UpdateGun(InventorySlot[Pointer].WeaponName);
     }
 
 
@@ -49,23 +49,45 @@ public class Shooting : MonoBehaviour
             Pointer++;
             SwitchingGun();
         }
-
-        //Shoots the bullet                 Rate of fire                Has enough ammo
-        if (Input.GetButtonDown("Fire1") && Time.time > lastUsedTime && InventorySlot[Pointer].AmmoCount > 0)
+        
+        //Checking if gun is automatic
+        if (InventorySlot[Pointer].GunAuto == true)
         {
-            lastUsedTime = Time.time + InventorySlot[Pointer].CoolDown;
-
-            InventorySlot[Pointer].AmmoCount--;
-            InventorySlot[Pointer].Shoot(Firepoint);
-            //uiManager.UpdateAmmoAmmount(InventorySlot[Pointer].AmmoCount);
+            if (Input.GetMouseButton(0) && canfire())
+            {
+                Shoot();
+            }
+        } 
+        else
+        {   
+            //Shoots the bullet                 Rate of fire                Has enough ammo
+            if (Input.GetButtonDown("Fire1") && canfire())
+            {
+                Shoot();
+            }
         }
+       
+       
+    }
 
+    private bool canfire()
+    {
+        return Time.time > lastUsedTime && InventorySlot[Pointer].AmmoCount > 0;
+    }
+
+    private void Shoot()
+    {
+        lastUsedTime = Time.time + InventorySlot[Pointer].CoolDown;
+
+        InventorySlot[Pointer].AmmoCount--;
+        InventorySlot[Pointer].Shoot(Firepoint);
+        uiManager.UpdateAmmo(InventorySlot[Pointer].AmmoCount);
     }
 
     private void SwitchingGun()
     {
         lastUsedTime = Time.time + 1f;
-        //uiManager.UpdateWeaponName(InventorySlot[Pointer].WeaponName);
-        //uiManager.UpdateAmmoAmmount(InventorySlot[Pointer].AmmoCount);
+        uiManager.UpdateGun(InventorySlot[Pointer].WeaponName);
+        uiManager.UpdateAmmo(InventorySlot[Pointer].AmmoCount);
     }
 }

@@ -2,38 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Security.Cryptography;
 
 public class RegularBullet : Bullets
 {
-    [SerializeField]
-    GameObject bulletPrefab;
-
-    [SerializeField]
-    string GunName = "Gun";
-
-    [SerializeField]
-    float BulletSpeed = 20f;
-
-    [SerializeField]
-    int BulletAmount = 10;
-
-    [SerializeField]
-    float CoolDownf;
-
-    [SerializeField]
-    float Damage = 3;
-
-    [SerializeField]
-    float Recoil = 0;
-
-    private void Awake()
-    {
-        Speed = BulletSpeed;
-        AmmoCount = BulletAmount;
-        CoolDown = CoolDownf;
-        WeaponName = GunName;
-    }
-
 
     public override void Shoot(Transform Firepoint)
     {

@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    public GameObject Managers;
+
     [Header("Stats")]
     [SerializeField] float Health;
     [SerializeField] bool Immune  = false;
@@ -36,7 +39,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     Rigidbody2D player;
 
-   
+    public UIManager uiManager;
+
 
     //Enables and disables the move and jump buttons when Unity calls OnEnable and OnDisable
     void OnEnable()
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        uiManager = Managers.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -132,6 +137,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 player.AddForce(Knockback * 20, ForceMode2D.Impulse);
                 StartCoroutine(Immunity());
                 }
+            uiManager.UpdateHealthBar(Health);
         }
         
     }

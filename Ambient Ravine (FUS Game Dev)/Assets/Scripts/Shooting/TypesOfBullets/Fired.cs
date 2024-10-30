@@ -6,12 +6,8 @@ using UnityEngine;
 
 public class Fired : MonoBehaviour
 {
-    Bullets CurrentBulletType;
-
-    private void Awake()
-    {
-        CurrentBulletType = GetComponent<Bullets>();
-    }
+    [SerializeField]
+    public Bullets CurrentBulletType { get; set; }
 
     private void OnTriggerEnter2D(Collider2D collider2D) 
     {

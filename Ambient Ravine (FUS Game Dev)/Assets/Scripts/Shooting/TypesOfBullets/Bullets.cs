@@ -5,11 +5,33 @@ using UnityEngine;
 
 public abstract class Bullets : MonoBehaviour
 {
-    public int AmmoCount { get; set; }
-    public float Speed { get; set; }
+    [SerializeReference]
+    public GameObject bulletPrefab;
 
-    public string WeaponName { get; set; }
-    public float CoolDown { get; set; }
+    [SerializeReference]
+    public int AmmoCount;
+
+    [SerializeReference]
+    public float Speed;
+
+    [SerializeReference]
+    public string WeaponName;
+
+    [SerializeReference]
+    public float CoolDown;
+
+    [SerializeReference]
+    public bool GunAuto;
+
+    [SerializeReference]
+    public float Damage;
+
+    [SerializeReference]
+    public float Recoil;
+
+    [SerializeReference]
+    public GameObject TOB;
+
 
     /// <summary>
     /// Fires an object from a certain position

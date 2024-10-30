@@ -2,21 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotGunBullet : Bullets
+public class LaserGun : Bullets
 {
-
     public override void Shoot(Transform Firepoint)
     {
-        for(int i = -1; i <= 1; i++)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Firepoint.rotation);
-
-            bullet.AddComponent<Fired>();
-
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-            rb.AddForce((Firepoint.up + i*(Firepoint.right)/6).normalized * Speed, ForceMode2D.Impulse);
-        }
+        GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Firepoint.rotation);
+        bullet.AddComponent<Fired>();
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(Firepoint.up * Speed, ForceMode2D.Impulse);
     }
 
     public override void OnHit(Collider2D collider2D)
