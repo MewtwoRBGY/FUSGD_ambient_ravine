@@ -7,23 +7,23 @@ public class LaserGun : Bullets
     public override void Shoot(Transform Firepoint)
     {
         GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Firepoint.rotation);
-        bullet.AddComponent<Fired>();
+        bullet.AddComponent<Fired>().CurrentBulletType = TOB.GetComponent<LaserGun>();
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(Firepoint.up * Speed, ForceMode2D.Impulse);
     }
 
-    public override void OnHit(Collider2D collider2D)
+    public override void OnHit(Collider2D collider2D, GameObject GOBullet)
     {
         IDamageable damageable = collider2D.GetComponent<IDamageable>();
         if (damageable != null)
         {
             damageable.Damage(Damage, Vector2.zero);
         }
-        Destroy(gameObject);
+        Destroy(GOBullet);
     }
 
-    public override void Fired()
+    public override void Fired(GameObject GOBullet)
     {
-        Destroy(gameObject, 5f);
+        Destroy(GOBullet, 5f);
     }
 }

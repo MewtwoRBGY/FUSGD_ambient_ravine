@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7546237077153291524}
   - component: {fileID: 1600684393290193994}
   - component: {fileID: 4033540941910039899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LaserBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,12 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  GunName: Laser MachineGun
-  BulletSpeed: 20
-  BulletAmount: 250
-  CoolDownf: 0
+  AmmoCount: 0
+  Speed: 0
+  WeaponName: 
+  CoolDown: 0
+  GunAuto: 0
   Damage: 3
   Recoil: 0
+  TOB: {fileID: 0}
 --- !u!50 &1600684393290193994
 Rigidbody2D:
   serializedVersion: 4
